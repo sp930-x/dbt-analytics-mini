@@ -1,0 +1,5 @@
+invoice_id,customer_id,product_id,amount_usd,currency,invoice_date,status
+1001,1,10,199,EUR,2025-03-01,paid
+1002,1,20,299,EUR,2025-03-10,paid
+1003,2,11,249,EUR,2025-03-11,open
+1004,3,21,149,EUR,2025-03-12,void

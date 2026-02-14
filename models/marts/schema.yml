@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_customers
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+
+  - name: dim_products
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+
+  - name: fct_invoices
+    description: "Invoice fact table at invoice grain, built from stg_invoices."
+    columns:
+      - name: invoice_id
+        tests: [not_null, unique]
+      - name: status
+        tests:
+          - accepted_values:
+              values: ["paid", "open", "void"]
+              
+  - name: kpi_monthly_revenue
+    description: "Monthly paid revenue by country (definition: status='paid')."
+    columns:
+      - name: month
+        tests: [not_null]
+      - name: country
+        tests: [not_null]
